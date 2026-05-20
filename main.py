@@ -1,14 +1,12 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from openai import AzureOpenAI
+from openai import OpenAI
 import os
 
 app = FastAPI()
 
-client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),
-    api_version="2024-02-01",
-    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT")
+client = OpenAI(
+    api_key=os.getenv("OPENAI_KEY")
 )
 
 class Mail(BaseModel):
